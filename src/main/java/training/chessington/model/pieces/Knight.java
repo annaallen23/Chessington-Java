@@ -15,6 +15,29 @@ public class Knight extends AbstractPiece {
 
     @Override
     public List<Move> getAllowedMoves(Coordinates from, Board board) {
-        return new ArrayList<>();
+        List<Move> moves = new ArrayList<Move>();
+
+        if (colour.equals(PlayerColour.WHITE)||(colour.equals(PlayerColour.BLACK)){
+            if ((from.getCol()<=6) && (from.getRow()>=2)) {
+                moves.add(new Move(from, from.plus(-2, +1)));
+            }
+            if ((from.getCol()>=1) && (from.getRow()>=2)) {
+                moves.add(new Move(from, from.plus(-2, -1)));
+            }
+            if ((from.getCol()<=6) && (from.getRow()<=5)) {
+                moves.add(new Move(from, from.plus(+2, +1)));
+            }
+            if ((from.getCol()>=1) && (from.getRow()<=5)) {
+                moves.add(new Move(from, from.plus(+2, -1)));
+            }
+            if ((from.getCol()>=1) && (from.getRow()<=5)) {
+                moves.add(new Move(from, from.plus(-1, +2)));
+            }
+            if ((from.getCol()>=) && (from.getRow())) {
+            moves.add(new Move(from, from.plus(-1,-2)));
+            moves.add(new Move(from, from.plus(+1,+2)));
+            moves.add(new Move(from, from.plus(+1,-2)));
+        }
+        return new ArrayList<>(moves);
     }
 }
