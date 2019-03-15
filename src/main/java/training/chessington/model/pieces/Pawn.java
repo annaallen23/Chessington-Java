@@ -23,7 +23,8 @@ public class Pawn extends AbstractPiece {
             if (board.get(from.plus(-1, 0)) == null) {
                 moves.add(new Move(from, from.plus(-1, 0)));
             }
-            if (from.getCol() != 0 && board.get(from.plus(-1, -1)) != null && board.get(from.plus(-1, -1)).getColour().equals(PlayerColour.BLACK)) {
+            if (from.getCol() != 0 && board.get(from.plus(-1, -1)) != null //sees if space on board is not empty
+             && board.get(from.plus(-1, -1)).getColour().equals(PlayerColour.BLACK)) {
                 moves.add(new Move(from, from.plus(-1, -1)));
             }
             if (from.getCol() != 7 && board.get(from.plus(-1, +1)) != null && board.get(from.plus(-1, +1)).getColour().equals(PlayerColour.BLACK)) {
