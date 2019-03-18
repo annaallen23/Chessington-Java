@@ -15,6 +15,63 @@ public class Queen extends AbstractPiece {
 
     @Override
     public List<Move> getAllowedMoves(Coordinates from, Board board) {
-        return new ArrayList<>();
+        List<Move> moves = new ArrayList<Move>();
+
+        for (int i = 1; i <= 7; i++) {
+            if (from.getRow() >= i) {
+                Move move = new Move(from, from.plus(-i, 0));
+                if (Utilities.allowedToMove(board, from, colour, -i, 0)){
+                    moves.add(move);
+                }
+            }
+            if (from.getRow() <= 7 - i){
+                Move move = new Move(from, from.plus(+i, 0));
+                if (Utilities.allowedToMove(board, from, colour, +i, 0)){
+                    moves.add(move);
+                }
+
+            }
+            if (from.getCol() >= i){
+                Move move = new Move(from,from.plus(0,-i));
+                if (Utilities.allowedToMove(board, from, colour, 0, -i)){
+                    moves.add(move);
+                }
+            }
+            if (from.getCol() <= 7 - i){
+                Move move =new Move(from,from.plus(0, +i));
+                if (Utilities.allowedToMove(board, from, colour, 0, +i)){
+                    moves.add(move);
+                }
+            }
+        }
+
+        for (int i = 1; i <= 7; i++) {
+            if (from.getRow() >= i && from.getCol() <= 7-i) {
+                Move move = new Move(from, from.plus(-i, +i));
+                if (Utilities.allowedToMove(board,from, colour, -i, +i)){
+                    moves.add(move);
+                }
+            }
+            if (from.getRow() <= 7 - i && from.getCol() >= i){
+                Move move = new Move(from, from.plus(+i, -i));
+                if (Utilities.allowedToMove(board,from,colour, +i,-i)){
+                    moves.add(move);
+                }
+
+            }
+            if (from.getCol() >= i && from.getRow() >= i ){
+                Move move = new Move(from,from.plus(-i,-i));
+                if (Utilities.allowedToMove(board, from, colour, -i, -i)){
+                    moves.add(move);
+                }
+            }
+            if (from.getCol() <= 7 - i && from.getRow() <= 7 - i ){
+                Move move =new Move(from,from.plus(+i, +i));
+                if (Utilities.allowedToMove(board, from, colour, +i,+i)){
+                    moves.add(move);
+                }
+            }
+        }
+        return moves;
     }
 }
