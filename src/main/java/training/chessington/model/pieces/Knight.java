@@ -18,6 +18,7 @@ public class Knight extends AbstractPiece {
         List<Move> moves = new ArrayList<Move>();
 
         if (colour.equals(PlayerColour.WHITE)||(colour.equals(PlayerColour.BLACK))){
+            //sets boundaries knight can move within and checks if space is occupied by own colour piece not to move
             if (from.getCol() <= 6 && from.getRow() >= 2) {
                 if (board.get(from.plus(-2, +1)) == null || !board.get(from.plus(-2, +1)).getColour().equals(colour)) {
                     moves.add(new Move(from, from.plus(-2, +1)));

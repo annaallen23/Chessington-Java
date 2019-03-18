@@ -16,7 +16,7 @@ public class Rook extends AbstractPiece {
     @Override
     public List<Move> getAllowedMoves(Coordinates from, Board board) {
         List<Move> moves = new ArrayList<Move>();
-
+        //loops through moves if row is greater than i calls in method allowedToMove and adds move to List Move
             for (int i = 1; i <= 7; i++) {
                 if (from.getRow() >= i) {
                     Move move = new Move(from, from.plus(-i, 0));
@@ -39,7 +39,7 @@ public class Rook extends AbstractPiece {
                 }
                 if (from.getCol() <= 7 - i){
                     Move move =new Move(from,from.plus(0, +i));
-                    if (Utilities.allowedToMove(board,  from, colour,0,+i)){
+                    if (Utilities.allowedToMove(board, from, colour,0,+i)){
                         moves.add(move);
                     }
                 }

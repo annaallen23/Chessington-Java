@@ -16,7 +16,7 @@ public class Queen extends AbstractPiece {
     @Override
     public List<Move> getAllowedMoves(Coordinates from, Board board) {
         List<Move> moves = new ArrayList<Move>();
-
+        //loops through moves i, adds move to list if within boundary and uses method allowedToMove to capture piece of other colour
         for (int i = 1; i <= 7; i++) {
             if (from.getRow() >= i) {
                 Move move = new Move(from, from.plus(-i, 0));

@@ -17,8 +17,9 @@ public class King extends AbstractPiece {
     public List<Move> getAllowedMoves(Coordinates from, Board board) {
 
         List<Move> moves = new ArrayList<Move>();
-
+        //moves regardless of colour piece
         if (colour.equals(PlayerColour.WHITE) || (colour.equals(PlayerColour.BLACK))) {
+            //sets boundaries col/row that move can be initiated in without piece falling off the board and prevents moving into space occupied by own colour.
             if (from.getCol() <= 6 && from.getRow() >= 1) {
                 if (board.get(from.plus(-1, +1)) == null || !board.get(from.plus(-1, +1)).getColour().equals(colour)) {
                     moves.add(new Move(from, from.plus(-1, +1)));

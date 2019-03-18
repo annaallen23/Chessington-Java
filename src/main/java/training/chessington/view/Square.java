@@ -18,7 +18,7 @@ public class Square extends Parent {
     private Text text;
 
     public enum SquareColour {
-        WHITE(Color.WHITE), BLACK(Color.DARKGRAY);
+        WHITE(Color.WHITE), BLACK(Color.PAPAYAWHIP);
 
         private final Color color;
 
@@ -59,11 +59,11 @@ public class Square extends Parent {
     }
 
     public void showAsSelected() {
-        background.setStroke(Color.PURPLE);
+        background.setStroke(Color.PINK);
     }
 
     public void showAsMoveOption() {
-        background.setStroke(Color.CHARTREUSE);
+        background.setStroke(Color.TURQUOISE);
     }
 
     public void setPiece(Piece piece) {

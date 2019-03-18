@@ -17,16 +17,20 @@ public class Pawn extends AbstractPiece {
     public List<Move> getAllowedMoves(Coordinates from, Board board) {
         List<Move> moves = new ArrayList<Move>();
         if (colour.equals(PlayerColour.WHITE) && from.getRow() != 0) {
+            //moves pawn two squares only at start
             if (from.getRow() == 6) {
                 moves.add(new Move(from, from.plus(-2, 0)));
             }
+            //moves pawn one square up
             if (board.get(from.plus(-1, 0)) == null) {
                 moves.add(new Move(from, from.plus(-1, 0)));
             }
+            //if space diagonally left is not empty and contains a black piece move into space and capture piece
             if (from.getCol() != 0 && board.get(from.plus(-1, -1)) != null //sees if space on board is not empty
              && board.get(from.plus(-1, -1)).getColour().equals(PlayerColour.BLACK)) {
                 moves.add(new Move(from, from.plus(-1, -1)));
             }
+            //if space diagonally right is not empty and contains a black piece move into space and capture piece
             if (from.getCol() != 7 && board.get(from.plus(-1, +1)) != null && board.get(from.plus(-1, +1)).getColour().equals(PlayerColour.BLACK)) {
                 moves.add(new Move(from, from.plus(-1, +1)));
             }
@@ -48,6 +52,15 @@ public class Pawn extends AbstractPiece {
         }
             return new ArrayList<>(moves);
         }
+
+    //public static boolean pawnPromotion(Board board, Coordinates from, PlayerColour colour){
+
+        //if (colour.equals(PlayerColour.WHITE) && from.getRow() == 0) {
+
+        //}
+       // if (colour.equals(PlayerColour.BLACK) && from.getRow() == 7) {
+
+        //}
     }
 
 
